@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+
+var jit_assassin
+try {
+    jit_assassin = require('jit-assassin');
+} catch (e) {
+    jit_assassin = require('../lib/main');
+}
+
+function processFile(fname, out) {
+    if (!out) out = process.stdout;
+    var content = fs.readFileSync(fname, 'utf-8');
+    var output = jit_assassin.instrument(content);
+    out.write(output);
+    out.write("\n");
+}
+
+function main() {
+    for (var i = 2; i < process.argv.length; i++) {
+        processFile(process.argv[i]);
+    }
+}
+
+main();

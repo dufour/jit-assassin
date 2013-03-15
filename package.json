@@ -1,0 +1,17 @@
+{
+    "name":    "jit-assassin",
+    "version": "0.0.1",
+    "author" : "Bruno Dufour <dufour@iro.umontreal.ca>",
+    "description" : "A source-to-source transformation for JavaScript to disable the JIT",
+    "private": true,
+    "main"   : "./lib/main.js",
+    "bin" : {
+        "jit-assassin" : "./bin/jit-assassin"
+    },
+    "dependencies": {
+        "esprima"    : "1.0.x",
+        "escodegen"  : "~0.0.15",
+        "estraverse" : "~0.0.4"
+    },
+    "license" : "MIT"
+}
